@@ -4,6 +4,6 @@ from django.shortcuts import render
 # Create your views here.
 
 def hello_world(request):
-    return HttpResponse('Hello world! 방가방가')
+    return render(request, 'base.html')
 
 
