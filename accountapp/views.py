@@ -30,7 +30,7 @@ def hello_world(request):
 
 class AccountCreateView(CreateView):
     model = User
-    form_class = UserCreationForm
+    form_class = UserCreationForm # form
     success_url = reverse_lazy('accountapp:hello_world') # 클래스에선 lazy 추가
     template_name = 'accountapp/create.html'
 
