@@ -10,17 +10,26 @@
              src="{{ target_user.profile.image.url }}" alt="{{ target_user.profile.nickname }}'s profile">
         <h2>
             {{ target_user.profile.nickname }}
-            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                Edit
-            </a>
+                {% if target_user == user %}
+
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                    Edit
+                </a>
+                {% endif %}
         </h2>
         <h5 style="margin-bottom: 3rem;">{{ target_user.profile.message }}</h5>
         {% else %}
-        <a href="/profiles/create/">
-            <h2>
-                Create Profile
-            </h2>
-        </a>
+            {% if target_user == user %}
+            <a href="/profiles/create/">
+                <h2>
+                    Create Profile
+                </h2>
+            </a>
+            {% else %}
+            <h6>
+                닉네임 미설정...
+            </h6>
+            {% endif %}
         {% endif %}
         {% if target_user == user %}
         <a href="{% url 'accountapp:update' pk=user.pk %}">
