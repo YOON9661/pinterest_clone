@@ -1,0 +1,22 @@
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style="text-align: center; margin: 4rem auto; max-width: 500px;">
+        <div class="mb-4">
+            <h4>Comment Create</h4>
+        </div>
+        {% if user.is_authenticated %}
+        <form action="{% url 'commentapp:create' %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-dark rounded-pill col-12 mt-3">
+            <input type="hidden" name="article_pk" value="{{ article.pk }}">
+        </form>
+        {% else %}
+        <a href="{% url 'accountapp:login' %}?next={{ request.path }}"
+        class="btn btn-dark rounded-pill col-6 mt-3">
+            Login
+        </a>
+        {% endif %}
+    </div>
+{% endblock %}
