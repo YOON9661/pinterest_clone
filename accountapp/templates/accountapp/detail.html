@@ -12,8 +12,8 @@
             {{ target_user.profile.nickname }}
                 {% if target_user == user %}
 
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                    Edit
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}" style="padding: 0.4rem">
+                   <i class="fas fa-user-edit" style="color: cornflowerblue"></i>
                 </a>
                 {% endif %}
         </h2>
@@ -34,11 +34,13 @@
         {% if target_user == user %}
         <a href="{% url 'accountapp:update' pk=user.pk %}">
             <p>
-                Change Info
+                <i class="fas fa-wrench"></i>
+                Change Account
             </p>
         </a>
         <a href="{% url 'accountapp:delete' pk=user.pk %}">
             <p>
+                <i class="fas fa-trash-alt" style="color: red;"></i>
                 Quit
             </p>
         </a>
