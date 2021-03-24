@@ -2,8 +2,22 @@
     font-family: 'Berkshire Swash', cursive;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: gray;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 500px) {
     html {
         font-size: 13px;
     }
+}
+
+.pinterest_header_nav {
+    margin: 0 1rem;
 }

@@ -4,20 +4,40 @@
     </div>
     <div style="margin-bottom: 10px">
         {% if user.is_authenticated %}
-            <a href="{% url 'accountapp:logout' %}"><span>logout</span></a>
+            <a href="{% url 'accountapp:logout' %}" class="pinterest_header_nav">
+                <span>
+                    logout
+                </span>
+            </a>
         {% else %}
-            <a href="{% url 'accountapp:login' %}"><span>login</span></a>
+            <a href="{% url 'accountapp:login' %}" class="pinterest_header_nav">
+                <span>
+                    login
+                </span>
+            </a>
         {% endif %}
         {% if user.is_authenticated %}
-            <a href="{% url 'accountapp:detail' pk=user.pk %}"><span>My Page</span></a>
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" class="pinterest_header_nav">
+                <span>
+                    My Page
+                </span>
+            </a>
         {% else %}
-            <a href="{% url 'accountapp:create' %}"><span>signup</span></a>
+            <a href="{% url 'accountapp:create' %}" class="pinterest_header_nav">
+                <span>
+                    signup
+                </span>
+            </a>
         {% endif %}
-        <a href="{% url 'articleapp:list' %}">
+        <a href="{% url 'articleapp:list' %}" class="pinterest_header_nav">
             <span>
-            Articles
+                Articles
             </span>
         </a>
-        <span>nav4</span>
+        <a href="{% url 'projectapp:list' %}">
+            <span class="pinterest_header_nav">
+                Project
+            </span>
+        </a>
     </div>
 </div>
