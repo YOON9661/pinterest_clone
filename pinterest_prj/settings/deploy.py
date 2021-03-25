@@ -35,7 +35,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
+        'NAME': 'django_db',
         'USER': 'django',
         'PASSWORD': 'dmrgjf09',
         'HOST': 'mariadb',
