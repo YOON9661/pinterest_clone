@@ -5,8 +5,6 @@ from accountapp.views import AccountCreateView, AccountDetailView, AccountUpdate
 
 app_name = "accountapp"
 
-# 127.0.0.1:8000/account/hello_world/
-# "accountapp:hello_world"
 
 urlpatterns = [
     path('login/', LoginView.as_view(template_name="accountapp/login.html"), name="login"),
