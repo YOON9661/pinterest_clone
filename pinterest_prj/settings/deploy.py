@@ -32,6 +32,13 @@ ALLOWED_HOSTS = ['158.247.202.64', '127.0.0.1']
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_db',
         'USER': 'django',
