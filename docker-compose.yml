@@ -10,24 +10,36 @@ services:
       - media-volume:/data/media
     ports:
       - 80:80
+    depends_on:
+      - django_container_gunicorn
+
   django_container_gunicorn:
-    image: django_test_image:5
+    image: django_test_image:1
     networks:
       - network
     volumes:
       - static-volume:/home/pinterest_clone/staticfiles
       - media-volume:/home/pinterest_clone/media
+    secrets:
+      - MYSQL_PASSWORD
+      - DJANGO_SECRET_KEY
+    depends_on:
+      - mariadb
+
   mariadb:
     image: mariadb:10.5
     networks:
       - network
     volumes:
       - maria-database:/var/lib/mysql
+    secrets:
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
     environment:
-      MYSQL_ROOT_PASSWORD: dmrgjf09
-      MYSQL_DATABASE: django
+      MYSQL_DATABASE: django_db
       MYSQL_USER: django
-      MYSQL_PASSWORD: dmrgjf09
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
+      MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
 
 networks:
   network:
@@ -36,3 +48,12 @@ volumes:
   static-volume:
   media-volume:
   maria-database:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
+  MYSQL_PASSWORD:
+    external: true
+  MYSQL_ROOT_PASSWORD:
+    external: true
+

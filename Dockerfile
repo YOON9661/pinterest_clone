@@ -3,8 +3,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo "무야야야야야호오오오"
-RUN echo "testing"
+RUN echo "please build prease"
 
 # 장고 소스코드를 이미지 안에 넣는 것
 RUN git clone https://github.com/YOON9661/pinterest_clone.git
